@@ -9,15 +9,15 @@ on:
 
 jobs:
   debug:
-    name: Debug (${github.event_name})
+    name: Debug (${{ github.event_name }})
     runs-on: ubuntu-latest
     steps:
       - name: Debug
         run: |
-          echo '${{ toJSON(github) }}' > debug-${github.event_name}.json
+          echo '${{ toJSON(github) }}' > debug-${{ github.event_name }}.json
       
       - name: Upload Debug
         uses: actions/upload-artifact@v2
         with:
           name: debug
-          path: debug-${github.event_name}.json
+          path: debug-${{ github.event_name }}.json
